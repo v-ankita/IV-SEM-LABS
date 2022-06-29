@@ -1,0 +1,119 @@
+select e2.name
+from emp e , emp e2
+where e2.designation = e.designation and e.empcode = 100;
+
+select name
+from emp
+where reports_to in (
+select empcode
+from emp
+where lower(name) = 'vijay');
+
+select name
+from emp
+where empcode in(
+select empno
+from family_dependents
+where lower(relationship) = 'daughter');
+
+select name
+from emp
+where empcode not in(
+select w.empcode
+from prj_details pr , work_exp w
+where w.prjid = pr.prjid and lower(pr.prj_name) = 'spyder');
+
+
+select name
+from emp_skill es,emp e
+where e.empcode = es.empno and skillid = some(
+select distinct skillid
+from emp_skill
+where empno in(
+select empcode
+from work_exp
+where prjid = 'p1'));
+
+select name
+from emp e natural join work_exp w
+where w.prjid = 'p1' and w.work_experience > all (
+select work_experience
+from work_exp
+where prjid = 'p2');
+
+select empcode
+from work_exp
+where exists(
+select
+
+select e.name
+from emp e, work_exp x
+where e.empcode = x.empcode and exists (
+select *
+from work_exp we, emp em
+where em.empcode = we.empcode and em.empcode = 100 and x.prjid = we.prjid and x.clientid = we.clientid);
+
+select distinct e.name
+from emp e, work_exp we
+where e.empcode = we.empcode and not exists (
+select *
+from work_exp we_in , emp e_in
+where we_in.empcode = e_in.empcode and e_in.empcode = 106 and we.prjid = we_in.prjid);
+
+select prjid, prj_name
+from prj_details
+where prjid in(
+select we.prjid
+from work_exp we, emp e
+where we.empcode = e.empcode
+group by (we.prjid)
+having sum(salary) < (
+select p.budget_allocated
+from prj_details p
+where p.prjid = we.prjid));
+
+4.11) select p.prj_name, count(x.empcode) from prj_details p, work_exp x
+where p.prjid = x.prjid and x.rating in ('a', 'b') group by p.prj_name order by count(x.empcode) desc;
+
+
+
+4.12) select p.prj_name from prj_details p, (select x.prjid, count(x.empcode) cnt from
+work_exp x group by x.prjid) w where p.prjid = w.prjid and w.cnt > 2;
+
+
+
+4.13)select name, count(dep_name) num_deps from emp e join family_dependents f on e.empcode = f.empno group by name;
+
+
+
+4.14) select sum(premium*12) from medical_policy;
+
+
+
+4.15)
+with tot_exp as (select empno, sum(skill_experience) sum_exp from emp_skill group by empno)
+select e.name from emp e, tot_exp te where e.empcode = te.empno and te.sum_exp > 20;
+
+
+
+4.16)
+create table emp_prj(emp_name, budget, project_name) as select
+e.name, pd.prj_name, pd.budget_allocated from emp e, prj_details pd, work_exp we where
+e.empcode = we.empcode and
+we.prjid = pd.prjid and
+pd.lead_by_empcode = 110;
+
+
+
+4.17)
+update emp set salary = case
+when designation in ('project leader', 'project leader') then salary*1.1
+when designation = 'developer' then salary*1.05
+else salary*1
+end;
+
+
+
+4.18) create view emp_skill_experience(employee_name, skill_name, skill_experience) as
+select e.name, se.skill_experience,s.skillname from emp e,emp_skill se, skill s where
+e.empcode = se.empno and se.skillid = s.skillid and skill_experience>20;
