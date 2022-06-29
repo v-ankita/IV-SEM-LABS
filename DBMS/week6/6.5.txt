@@ -1,0 +1,37 @@
+set serveroutput on;
+declare
+v_emp employee%rowtype;
+v_emprj work_exp%rowtype;
+v_prj pru_details%rowtype;
+v_paycheck pay_check%rowtype;
+total_salary employee.salary%type;
+
+begin
+v_emp.empcode := &empcode;
+v_prj.prjid := '&prjid';
+
+select rating into v_emprj.rating from work_exp where empcode=v_emp.empcode and prjid=v_prj.prjid;
+select name, salary into v_emp.name, v_emp.salary from employee where empcode = v_emp.empcode;
+select prj_name into v_prj.prj_name from pru_details where prjid=v_prj.prjid;
+
+dbms_output.put_line('Employee Number: '||v_emp.empcode);
+dbms_output.put_line('Employee Name: '||v_emp.name);
+dbms_output.put_line('Salary: '||v_emp.salary);
+dbms_output.put_line('Project Name: '||v_prj.prj_name);
+dbms_output.put_line('Rating: '||v_emprj.rating);
+
+case v_emprj.rating
+when 'A' then v_paycheck.other_incentives:=1000;
+when 'B' then v_paycheck.other_incentives:=500;
+when 'C' then v_paycheck.other_incentives:=300;
+end case;
+
+total_salary:=v_emp.salary+v_paycheck.other_incentives;
+
+dbms_output.put_line('Incentive: '||v_paycheck.other_incentives);
+dbms_output.put_line('Total Salary: '||total_salary);
+
+update pay_check set other_incentives=v_paycheck.other_incentives where empcode=v_emp.empcode;
+
+end;
+/

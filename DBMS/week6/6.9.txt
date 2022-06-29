@@ -1,0 +1,18 @@
+set serveroutput on;
+
+declare
+cursor c_prj is select empcpde, prj_name, lead_by_empcode
+from emp natural join work_exp natural join prj_details
+where actual_budget > budget_allocated;
+prj_lead emp.name%type;
+
+begin
+for i in c_prj
+loop
+select name into prj_lead from emp where empcode=i.lead_by_empcode;
+dbms_output.put_line('Name of Project Leader:'||prj_lead);
+dbms_output.put_line('Name of Project:'||i.prj_name);
+end loop;
+
+end;
+/

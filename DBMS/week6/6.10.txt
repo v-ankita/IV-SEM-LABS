@@ -1,0 +1,13 @@
+set serverset serveroutput on;
+declare
+cursor c_emp is select name, designation from employee;
+v_email varchar(20);
+begin
+for i in c_emp
+loop
+dbms_output.put_line('Name: ' ||i.name);
+dbms_output.put_line('Designation: ' ||i.designation);
+dbms_output.put_line('Email Generated: '||i.name||'.'||i.designation||'@digisoul.com');
+end loop;
+end;
+/

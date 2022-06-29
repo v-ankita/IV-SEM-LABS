@@ -1,0 +1,17 @@
+set serveroutput on;
+
+
+declare
+cursor c_cli(in_clientid char, in_rating char) is select empcode, name, designation
+from employee natural join work_exp where rating=in_rating and clientid=in_clientid;
+
+begin
+for i in c_cli('&in_clientid', '&in_rating')
+loop
+dbms_output.put_line('Employee Code: '||i.empcode);
+dbms_output.put_line('Employee Name: '||i.name);
+dbms_output.put_line('Designation: '||i.designation);
+end loop;
+
+end;
+/

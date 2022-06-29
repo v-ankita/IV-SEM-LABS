@@ -1,0 +1,30 @@
+set serveroutput on;
+declare
+v_emp employee%rowtype;
+v_pay pay_check%rowtype;
+v_incsal employee.salary%type;
+v_mgross employee.salary%type;
+v_home employee.salary%type;
+begin
+v_emp.empcode := &empcode;
+select name, salary into v_emp.name, v_emp.salary from employee where empcode=v_emp.empcode;
+select regular_increment, performance_incentive, other_incentives, advance_tax into
+v_pay.regular_increment, v_pay.performance_incentive, v_pay.other_incentives,
+v_pay.advance_tax from pay_check where empcode=v_emp.empcode and pay_date=to_date('01-01-2021', 'DD-MM-YYYY');
+v_incsal := v_emp.salary + v_pay.regular_increment;
+v_pay.da := v_incsal*0.5;
+v_pay.pf := v_incsal*0.12;
+v_mgross := v_emp.salary+v_pay.regular_increment+v_pay.performance_incentive+v_pay.da+v_pay.pf+v_pay.other_incentives;
+v_home := v_mgross-v_pay.pf-v_pay.advance_tax;
+dbms_output.put_line('Name: '||v_emp.name);
+dbms_output.put_line('Basic_Salary: '||v_emp.salary);
+dbms_output.put_line('Increased Basic Salary: '||v_incsal);
+dbms_output.put_line('Performance Incentive: '||v_pay.performance_incentive);
+dbms_output.put_line('DA: '||v_pay.da);
+dbms_output.put_line('PF: '||v_pay.pf);
+dbms_output.put_line('Other Incentive: '||v_pay.other_incentives);
+dbms_output.put_line('Advance Tax Paid: '||v_pay.advance_tax);
+dbms_output.put_line('Monthly Gross Salary: '||v_mgross);
+dbms_output.put_line('Monthly Take Home Salary: '||v_home);
+end;
+/

@@ -1,0 +1,16 @@
+declare
+v_emp emp%rowtype;
+
+begin
+v_emp.empcode := &code;
+
+select name, qualification, email, designation, salary
+into v_emp.name, v_emp.qualification, v_emp.email, v_emp.designation, v_emp.salary
+from emp
+where empcode = v_emp.empcode;
+
+dbms_output.put_line('Employee Number: '||v_emp.empcode);
+dbms_output.put_line('Employee Name: '||v_emp.name);
+
+end;
+/

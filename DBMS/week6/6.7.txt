@@ -1,0 +1,35 @@
+set serveroutput on;
+
+declare
+cursor c_emp is select empcode, name, salary, regular_increment, 
+performance_incentive, other_incentives, advance_tax from emp natural join paycheck 
+where paydate=to_date('01-01-2021', 'DD-MM-YYYY');
+
+c_da paycheck.da%type;
+c_pf paycheck.pf%type;
+c_incsal emp.salary%type;
+c_mgross emp.salary%type;
+c_home emp.salary%type;
+
+begin
+for i in c_emp
+loop
+c_incsal := i.salary + i.regular_increment;
+c_da := c_incsal*0.5;
+c_pf := c_incsal*0.12;
+c_mgross := i.salary+i.regular_increment+i.performance_incentive+c_da+c_pf+i.other_incentives;
+c_home := c_mgross-c_pf-i.advance_tax;
+dbms_output.put_line('Name: '||i.name);
+dbms_output.put_line('Basic_Salary: '||i.salary);
+dbms_output.put_line('Increased Basic Salary: '||c_incsal);
+dbms_output.put_line('Performance Incentive: '||i.performance_incentive);
+dbms_output.put_line('DA: '||c_da);
+dbms_output.put_line('PF: '||c_pf);
+dbms_output.put_line('Other Incentive: '||i.other_incentives);
+dbms_output.put_line('Advance Tax Paid: '||i.advance_tax);
+dbms_output.put_line('Monthly Gross Salary: '||c_mgross);
+dbms_output.put_line('Monthly Take Home Salary: '||c_home);
+end loop;
+
+end;
+/

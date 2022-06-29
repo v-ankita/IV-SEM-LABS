@@ -1,0 +1,18 @@
+set serveroutput on
+
+declare
+str varchar2(50):='&string';
+counter int:=length(str);
+
+begin 
+dbms_output.put_line(counter);
+loop exit when counter=0;
+exit when not(substr(str,counter,1)=substr(str,((length(str)+1)-counter),1));
+counter:=counter-1;
+end loop;
+if counter=0 then dbms_output.put_line(str||' is palindrome');
+else dbms_output.put_line(str||' is not palindrome');
+end if;
+
+end;
+/

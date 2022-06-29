@@ -1,0 +1,15 @@
+set serveroutput on;
+
+declare
+cursor c_exp is select name, sum(work_experience) tot_work_exp from employee natural join work_exp group by name order by tot_work_exp desc;
+
+begin
+for i in c_exp
+loop
+exit when c_exp%rowcount=6;
+dbms_output.put_line('Name: '||i.name);
+dbms_output.put_line('Work Experience: '||i.tot_work_exp);
+end loop;
+
+end;
+/
