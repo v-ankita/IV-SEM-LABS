@@ -1,0 +1,197 @@
+
+SQL> @ D:\DBLab_200968266\LAB_EXERCISES\WEEK_1\LAB_1.sql
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+
+Table created.
+
+SQL> DESC EMP
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPCODE                                   NOT NULL NUMBER(3)
+ NAME                                               VARCHAR2(10)
+ QUALIFICATION                                      VARCHAR2(7)
+ PHONE                                              NUMBER(10)
+ EMAIL                                              VARCHAR2(20)
+ DESIGNATION                                        VARCHAR2(20)
+ SALARY                                             NUMBER(7)
+
+SQL> DESC SKILL
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SKILLID                                            CHAR(3)
+ SKILLNAME                                          VARCHAR2(20)
+
+SQL> DESC CLIENT
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CLIENTID                                  NOT NULL CHAR(3)
+ NAME                                               VARCHAR2(10)
+ PHONE                                              VARCHAR2(14)
+
+SQL> DESC EMP_SKILL;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                              NUMBER(3)
+ SKILLID                                            CHAR(3)
+ SKILLEXPERIENCE                                    NUMBER(3)
+
+SQL> DESC PJR_DETAILS;
+ERROR:
+ORA-04043: object PJR_DETAILS does not exist 
+
+
+SQL> DESC PRJ_DETAILS;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ PRJID                                     NOT NULL CHAR(3)
+ PRJ_NAME                                           VARCHAR2(10)
+ START_DATE                                         DATE
+ END_DATE                                           DATE
+ ACTUAL_END_DATE                                    DATE
+ LEAD_BY_EMPCODE                                    NUMBER(3)
+ BUDGET_ALLOCATED                                   NUMBER(10,1)
+ ACTUAL_BUDGET                                      NUMBER(10,1)
+
+SQL> DESC WORK_EXP
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPCODE                                   NOT NULL NUMBER(3)
+ PRJID                                     NOT NULL CHAR(3)
+ WORK_EXPERIENCE                           NOT NULL NUMBER(3)
+ CLIENTID                                           CHAR(3)
+ RATING                                             CHAR(3)
+
+SQL> DESC FAMILY_DEPENDENTS
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(3)
+ DEP_NAME                                  NOT NULL VARCHAR2(20)
+ RELATIONSHIP                                       VARCHAR2(16)
+ AGE                                                NUMBER(3)
+
+SQL> DESC MEDICAL_POLICY
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(3)
+ POLICY_NO                                 NOT NULL VARCHAR2(5)
+ PREMIUM                                            NUMBER(4)
+ POLICYDATE                                         DATE
+
+SQL> DESC PAY_CHECK
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPCODE                                            NUMBER(3)
+ PAY_DATE                                           DATE
+ REGULAR_INCREMENT                                  NUMBER(4)
+ PERFORMANCE_INCENTIVE                              NUMBER(5)
+ DA                                                 NUMBER(7)
+ PF                                                 NUMBER(6)
+ OTHER_INCENTIVES                                   NUMBER(4)
+ ADVANCE_TAX                                        NUMBER(5)
+
+SQL> SPOOL OFF;
+SQL> ALTER TABLE EMP ADD ( REPORTS_TO VARCHAR(20) CONSTRAINT FK_REPORTS_TO_EMPCODE REFERENCES  EMP);
+ALTER TABLE EMP ADD ( REPORTS_TO VARCHAR(20) CONSTRAINT FK_REPORTS_TO_EMPCODE REFERENCES  EMP)
+                      *
+ERROR at line 1:
+ORA-02267: column type incompatible with referenced column type 
+
+
+SQL> ALTER TABLE EMP ADD (REPORTS_TO VARCHAR(20) CONSTRAINT FK_REPORTS_TO_EMPCODE REFERENCES  EMP);
+ALTER TABLE EMP ADD (REPORTS_TO VARCHAR(20) CONSTRAINT FK_REPORTS_TO_EMPCODE REFERENCES  EMP)
+                     *
+ERROR at line 1:
+ORA-02267: column type incompatible with referenced column type 
+
+
+SQL> ALTER TABLE EMP ADD (REPORTS_TO NUMBER(3) CONSTRAINT FK_REPORTS_TO_EMPCODE REFERENCES  EMP);
+
+Table altered.
+
+SQL> ALTER TABLE SKILL ADD CONSTRAINT STRS_WITH_S CHECK( SKILLID LIKE 'S%');
+
+Table altered.
+
+SQL> ALTER TABLE EMP_SKILL ADD CONSTRAINT PK_EMPNO_SKILLID PRIMARY KEY (EMPNO, SKILLID);
+
+Table altered.
+
+SQL> ALTER TABLE PRJ_DETAILS ADD CONSTRAINT UNQ_PRJ_NAME UNIQUE(PRJ_NAME);
+
+Table altered.
+
+SQL> ALTER TABLE MEDICAL_POLICY DROP CONSTRAINT PRIMARY KEY;
+ALTER TABLE MEDICAL_POLICY DROP CONSTRAINT PRIMARY KEY
+                                                   *
+ERROR at line 1:
+ORA-01735: invalid ALTER TABLE option 
+
+
+SQL> ALTER TABLE MEDICAL_POLICY DROP PRIMARY KEY;
+
+Table altered.
+
+SQL> ALTER TABLE EMP
+  2  ADD CONSTRAINT UNQ_EMAIL
+  3  UNIQUE (EMAIL);
+
+Table altered.
+
+SQL> ALTER TABLE MEDICAL_POLICY ADD CONSTRAINT PK_MEDICAL_POLICY PRIMARY KEY (EMPNO, POLICYNO, POLICYDATE);
+ALTER TABLE MEDICAL_POLICY ADD CONSTRAINT PK_MEDICAL_POLICY PRIMARY KEY (EMPNO, POLICYNO, POLICYDATE)
+                                                                                *
+ERROR at line 1:
+ORA-00904: "POLICYNO": invalid identifier 
+
+
+SQL> ALTER TABLE MEDICAL_POLICY ADD CONSTRAINT PK_MEDICAL_POLICY PRIMARY KEY (EMPNO, POLICY_NO, POLICYDATE);
+
+Table altered.
+
+SQL> alter table CLIENT
+  2  add   EMAIL varchar(20) constraint VALID_EMAIL check(email in '%@.___');
+
+Table altered.
+
+SQL> spool off;
+SQL> Alter table MEDICAL_POLICY
+  2  DROP CONSTRAINT PREMIUM_GREATER_THAN_0;
+DROP CONSTRAINT PREMIUM_GREATER_THAN_0
+
+Table altered.
+
+
+SQL> 
+SQL> Alter table MEDICAL_POLICY
+  2  ADD CONSTRAINT PREMIUM_GREATER_THAN_1000
+  3  CHECK(PREMIUM>1000);
+
+Table altered.
+
+
+
+
+SQL> spool off;

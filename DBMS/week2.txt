@@ -1,0 +1,740 @@
+SQL> insert into EMP values(100,'RAJESH','BTECH',9336423737,'rajesh@digisol.com','DEVELOPER',98000,NULL);
+insert into EMP values(100,'RAJESH','BTECH',9336423737,'rajesh@digisol.com','DEVELOPER',98000,NULL)
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.EMAIL_DOMAIN) violated 
+
+
+SQL> insert into EMP values(100,'RAJESH','BTECH',9336423737,'rajesh@DIGISOL.COM','DEVELOPER',98000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(101,'RAVI','MTECH',9737993146,'RAVI@DIGISOL.COM','PROJEACT LEADER',110000,NULL);
+INSERT INTO EMP VALUES(101,'RAVI','MTECH',9737993146,'RAVI@DIGISOL.COM','PROJEACT LEADER',110000,NULL)
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.VALID_DESIGNATION) violated 
+
+
+SQL> INSERT INTO EMP VALUES(102,'VIJAY','BTECH',9336446437,'VIJAY@DIGISOL.COM','PROJECT MANAGER',100000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(108,'AJAY','BTECH',9312884737,'AJAY@DIGISOL.COM','TECHNICAL HEAD',120000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(110,'BHASKAR','MTECH',9129023737,'BHASKAR@DIGISOL.COM','PROJECT DIRECTOR',150000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(106,'RAJ','MSC',9229023737,'RAJ@DIGISOL.COM','PROJECT LEADER',200000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(105,'MANISH','MCA',9326365737,'MANISH@DIGISOL.COM','DEVELOPER',130000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(106,'PRSAD','PHD',9102423737,'PRASAD@DIGISOL.COM','CEO',300000,NULL);
+INSERT INTO EMP VALUES(106,'PRSAD','PHD',9102423737,'PRASAD@DIGISOL.COM','CEO',300000,NULL)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DSE266.PK_EMPNO) violated 
+
+
+SQL>  INSERT INTO EMP VALUES(101,'RAVI','MTECH',9737993146,'RAVI@DIGISOL.COM','PROJECT LEADER',110000,NULL);
+
+1 row created.
+
+SQL>  INSERT INTO EMP VALUES(107,'PRSAD','PHD',9102423737,'PRASAD@DIGISOL.COM','CEO',300000,NULL);
+
+1 row created.
+
+SQL> spool off;
+SQL> INSERT INTO EMP VALUES(100,'RAJESH','BTECH',9336423737,'RAJESH@DIGISOL.COM','DEVELOPER',98000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(101,'RAVI','MTECH',9737993146,'RAVI@DIGISOL.COM','PROJEACT LEADER',110000,NULL);
+INSERT INTO EMP VALUES(101,'RAVI','MTECH',9737993146,'RAVI@DIGISOL.COM','PROJEACT LEADER',110000,NULL)
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.VALID_DESIGNATION) violated 
+
+
+SQL> INSERT INTO EMP VALUES(101,'RAVI','MTECH',9737993146,'RAVI@DIGISOL.COM','PROJECT LEADER',110000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(102,'VIJAY','BTECH',9336446437,'VIJAY@DIGISOL.COM','PROJECT MANAGER',100000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(108,'AJAY','BTECH',9312884737,'AJAY@DIGISOL.COM','TECHNICAL HEAD',120000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(110,'BHASKAR','MTECH',9129023737,'BHASKAR@DIGISOL.COM','PROJECT DIRECTOR',150000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(106,'RAJ','MSC',9229023737,'RAJ@DIGISOL.COM','PROJECT LEADER',200000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(105,'MANISH','MCA',9326365737,'MANISH@DIGISOL.COM','DEVELOPER',130000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(106,'PRSAD','PHD',9102423737,'PRASAD@DIGISOL.COM','CEO',300000,NULL);
+INSERT INTO EMP VALUES(106,'PRSAD','PHD',9102423737,'PRASAD@DIGISOL.COM','CEO',300000,NULL)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DSE266.PK_EMPNO) violated 
+
+
+SQL> INSERT INTO EMP VALUES(107,'PRSAD','PHD',9102423737,'PRASAD@DIGISOL.COM','CEO',300000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(102,'RAKESH','MTECH',9312323737,'RAKESH@DIGISOL.COM','DEVELOPER',130000,NULL);
+INSERT INTO EMP VALUES(102,'RAKESH','MTECH',9312323737,'RAKESH@DIGISOL.COM','DEVELOPER',130000,NULL)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DSE266.PK_EMPNO) violated 
+
+
+SQL> INSERT INTO EMP VALUES(103,'RAKESH','MTECH',9312323737,'RAKESH@DIGISOL.COM','DEVELOPER',130000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(108,'RAKESH','MTECH',9043523737,'RAKESH1@DIGISOL.COM','DEVELOPER',150000,NULL);
+INSERT INTO EMP VALUES(108,'RAKESH','MTECH',9043523737,'RAKESH1@DIGISOL.COM','DEVELOPER',150000,NULL)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DSE266.PK_EMPNO) violated 
+
+
+SQL> INSERT INTO EMP VALUES(109,'RAKESH','MTECH',9043523737,'RAKESH1@DIGISOL.COM','DEVELOPER',150000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(115,'ROHIT','MBA',9000213513,'ROHIT@DIGISOL.COM','DEVELOPER',140000,NULL);
+INSERT INTO EMP VALUES(115,'ROHIT','MBA',9000213513,'ROHIT@DIGISOL.COM','DEVELOPER',140000,NULL)
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.VALID_QUALIF) violated 
+
+
+SQL> INSERT INTO EMP VALUES(115,'ROHIT','MCA',9000213513,'ROHIT@DIGISOL.COM','DEVELOPER',140000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(110,'ROHAN','MTECH',9996423737,'ROHAN@DIGISOL.COM','S.ENGINEER',180000,NULL);
+INSERT INTO EMP VALUES(110,'ROHAN','MTECH',9996423737,'ROHAN@DIGISOL.COM','S.ENGINEER',180000,NULL)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DSE266.PK_EMPNO) violated 
+
+
+SQL> INSERT INTO EMP VALUES(116,'ROHAN','MTECH',9996423737,'ROHAN@DIGISOL.COM','S.ENGINEER',180000,NULL);
+INSERT INTO EMP VALUES(116,'ROHAN','MTECH',9996423737,'ROHAN@DIGISOL.COM','S.ENGINEER',180000,NULL)
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.VALID_DESIGNATION) violated 
+
+
+SQL> INSERT INTO EMP VALUES(116,'ROHAN','MTECH',9996423737,'ROHAN@DIGISOL.COM','DEVELOPER',180000,NULL);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES(111,'RAJ','MCA',9116423737,'RAJ@DIGITAL.COM','DEVELOPER',110000,NULL);
+INSERT INTO EMP VALUES(111,'RAJ','MCA',9116423737,'RAJ@DIGITAL.COM','DEVELOPER',110000,NULL)
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.EMAIL_DOMAIN) violated 
+
+
+SQL> INSERT INTO EMP VALUES(111,'RAJ','MCA',9116423737,'RAJ@DIGISOL.COM','DEVELOPER',110000,NULL);
+INSERT INTO EMP VALUES(111,'RAJ','MCA',9116423737,'RAJ@DIGISOL.COM','DEVELOPER',110000,NULL)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DSE266.UNQ_EMAIL) violated 
+
+
+SQL> INSERT INTO EMP VALUES(111,'RAJ','MCA',9116423737,'RAJ2@DIGISOL.COM','DEVELOPER',110000,NULL);
+
+1 row created.
+
+SQL> spool off;
+SQL> insert into skill values('S1', 'FULLSTACK');
+
+1 row created.
+
+SQL> INSERT INTO SKILL VALIES('S2', 'PYTHON');
+INSERT INTO SKILL VALIES('S2', 'PYTHON')
+                         *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword 
+
+
+SQL> insert into SKILL values('S3','JAVA');
+
+1 row created.
+
+SQL> insert into SKILL values('S4','C++');
+
+1 row created.
+
+SQL> insert into SKILL values('S6','ORACLE');
+
+1 row created.
+
+SQL> insert into SKILL values('S7','ANDRIOD');
+
+1 row created.
+
+SQL> insert into SKILL values('S8','AZURE');
+
+1 row created.
+
+SQL> insert into SKILL values('S9','DOT NET');
+
+1 row created.
+
+SQL> insert into SKILL values('S10','IOS');
+
+1 row created.
+
+SQL> INSERT INTO SKILL VALuES('S2', 'PYTHON');
+
+1 row created.
+
+SQL> insert into CLIENT values('C1','ABC','+48-87489389','aaa@abc.com');
+insert into CLIENT values('C1','ABC','+48-87489389','aaa@abc.com')
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.PHONE_FORMAT) violated 
+
+
+SQL> alter table client add column email varchar2(20) constraint unq_email unique;
+alter table client add column email varchar2(20) constraint unq_email unique
+                       *
+ERROR at line 1:
+ORA-00904: : invalid identifier 
+
+
+SQL> alter table client add email varchar2(20) constraint unq_email unique;
+alter table client add email varchar2(20) constraint unq_email unique
+                       *
+ERROR at line 1:
+ORA-01430: column being added already exists in table 
+
+
+SQL> desc client
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ CLIENTID                                  NOT NULL CHAR(3)
+ NAME                                               VARCHAR2(10)
+ PHONE                                              VARCHAR2(14)
+ EMAIL                                              VARCHAR2(20)
+
+SQL> insert into CLIENT values('C1','ABC','+48-87489389','aaa@abc.com');
+insert into CLIENT values('C1','ABC','+48-87489389','aaa@abc.com')
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.PHONE_FORMAT) violated 
+
+
+SQL> alter table client drop column phone;
+
+Table altered.
+
+SQL> alter table clint add PHONE VARCHAR(14) CONSTRAINT PHONE_FORMAT CHECK(PHONE LIKE '+91-%' OR PHONE LIKE '+81-%' OR PHONE LIKE '+31-%' OR PHONE LIKE '+48-%' OR PHONE LIKE '+44-%');
+alter table clint add PHONE VARCHAR(14) CONSTRAINT PHONE_FORMAT CHECK(PHONE LIKE '+91-%' OR PHONE LIKE '+81-%' OR PHONE LIKE '+31-%' OR PHONE LIKE '+48-%' OR PHONE LIKE '+44-%')
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist 
+
+
+SQL> alter table client add PHONE VARCHAR(14) CONSTRAINT PHONE_FORMAT CHECK(PHONE LIKE '+91-%' OR PHONE LIKE '+81-%' OR PHONE LIKE '+31-%' OR PHONE LIKE '+48-%' OR PHONE LIKE '+44-%');
+
+Table altered.
+
+SQL> insert into CLIENT values('C1','ABC','+48-87489389','aaa@abc.com');
+insert into CLIENT values('C1','ABC','+48-87489389','aaa@abc.com')
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.VALID_EMAIL) violated 
+
+
+SQL> alter table client drop email;
+alter table client drop email
+                        *
+ERROR at line 1:
+ORA-00905: missing keyword 
+
+
+SQL> alter table client drop column email;
+
+Table altered.
+
+SQL> alter table CLIENT
+  2  add   EMAIL varchar(20) constraint VALID_EMAIL check(email in '%@%.____');
+
+Table altered.
+
+SQL> insert into CLIENT values('C1','ABC','+48-87489389','aaa@abc.com');
+insert into CLIENT values('C1','ABC','+48-87489389','aaa@abc.com')
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.VALID_EMAIL) violated 
+
+
+SQL> alter table CLIENT
+  2  
+SQL> alter table client drop column email;
+
+Table altered.
+
+SQL> 
+SQL> alter table CLIENT
+  2  add   EMAIL varchar(20) constraint VALID_EMAIL check(email like '%@%.____');
+
+Table altered.
+
+SQL> insert into CLIENT values('C1','ABC','+48-87489389','aaa@abc.com');
+insert into CLIENT values('C1','ABC','+48-87489389','aaa@abc.com')
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.VALID_EMAIL) violated 
+
+
+SQL> alter table client drop column email;
+
+Table altered.
+
+SQL> alter table CLIENT
+  2  add   EMAIL varchar(20) constraint VALID_EMAIL check(email like '%@%.___');
+
+Table altered.
+
+SQL> insert into CLIENT values('C1','ABC','+48-87489389','aaa@abc.com');
+
+1 row created.
+
+SQL> insert into CLIENT values('C2','LTS','+91-78389397','bbb@lts.com');
+
+1 row created.
+
+SQL> insert into CLIENT values('C3','RK','+44-67838934','ccc@rk.com');
+
+1 row created.
+
+SQL> insert into CLIENT values('C4','MMA','+31-77839093','ddd@mma.com');
+
+1 row created.
+
+SQL> insert into CLIENT values('C5','AKS','+81-66822903','eee@aks.com');
+
+1 row created.
+
+SQL> insert into CLIENT values('C6','GKS','+44-75628982','fff@gks.com');
+
+1 row created.
+
+SQL> insert into CLIENT values('C7','B&B','+91-64839839','ggg@bb.com');
+Enter value for b: &B
+old   1: insert into CLIENT values('C7','B&B','+91-64839839','ggg@bb.com')
+new   1: insert into CLIENT values('C7','B&B','+91-64839839','ggg@bb.com')
+
+1 row created.
+
+SQL> insert into CLIENT values('C8','ABT','+97-67554667','hhh@abt.com');
+insert into CLIENT values('C8','ABT','+97-67554667','hhh@abt.com')
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.PHONE_FORMAT) violated 
+
+
+SQL> insert into CLIENT values('C8','ABT','+91-67554667','hhh@abt.com');
+
+1 row created.
+
+SQL> insert into CLIENT values('C8','ABT','+48-67554667','hhh@abt.com');
+insert into CLIENT values('C8','ABT','+48-67554667','hhh@abt.com')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DSE266.PK_CLIENTID) violated 
+
+
+SQL> insert into CLIENT values('C9','XYZ','+91-64839821','xyz@ab.com');
+
+1 row created.
+
+SQL> insert into CLIENT values('C12','N&&K',NULL,NULL);
+Enter value for k: l
+old   1: insert into CLIENT values('C12','N&&K',NULL,NULL)
+new   1: insert into CLIENT values('C12','Nl',NULL,NULL)
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(100,'S1',15);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(100,'S3',10);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(101,'S1',6);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(101,'S2',10);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(102,'S4',18);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(110,'S1',14);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(110,'S6',20);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(106,'S2',10);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(106,'S6',12);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(106,'S8',10);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(108,'S9',5);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(108,'S6',18);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(105,'S7',12);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(105,'S9',11);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(101,'S10',7);
+
+1 row created.
+
+SQL> insert into EMP_SKILL values(101,'S2',7);
+insert into EMP_SKILL values(101,'S2',7)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DSE266.PK_EMPNO_SKILLID) violated 
+
+
+SQL> insert into EMP_SKILL values(102,'S2',7);
+
+1 row created.
+
+SQL> desc work_exp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPCODE                                   NOT NULL NUMBER(3)
+ PRJID                                     NOT NULL CHAR(3)
+ WORK_EXPERIENCE                           NOT NULL NUMBER(3)
+ CLIENTID                                           CHAR(3)
+ RATING                                             CHAR(3)
+
+SQL> insert into work_exp values(100, 'P1', 20, 'C1', 'A');
+insert into work_exp values(100, 'P1', 20, 'C1', 'A')
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (DSE266.SYS_C0018253) violated - parent key not 
+found 
+
+
+SQL> nsert into PRJ_DETAILS values('P1','SPYDER','10-JAN-2020','11-OCT-2022','11-NOV-2022',102,2000000,1990000);
+SP2-0734: unknown command beginning "nsert into..." - rest of line ignored.
+SQL> 
+SQL> insert into PRJ_DETAILS values('P2','APOLLO','01-JAN-2019','10-JULY-2021','30-DEC-2021',108,3000000,3600000);
+
+1 row created.
+
+SQL> 
+SQL> insert into PRJ_DETAILS values('P3','UNICORN','03-SEP-2021','10-OCT-2023','10-OCT-2024',106,7500000,8000000);
+
+1 row created.
+
+SQL> 
+SQL> insert into PRJ_DETAILS values('P4','ZEUS','28-FEB-2020','09-JUN-2021','10-JAN-2022',110,5500000,5000000);
+
+1 row created.
+
+SQL> 
+SQL> insert into PRJ_DETAILS values('P5','JUPITOR','07-AUG-2018','04-FEB-2020','01-NOV-2020',110,9000000,9000000);
+
+1 row created.
+
+SQL> insert into PRJ_DETAILS values('P6','MARS','21-FEB-2022','07-AUG-2020','07-AUG-2024',110,5500000,5000000);
+insert into PRJ_DETAILS values('P6','MARS','21-FEB-2022','07-AUG-2020','07-AUG-2024',110,5500000,5000000)
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.END_DATE_GARTER_START_DATE) violated 
+
+
+SQL> insert into PRJ_DETAILS values('P6','MARS','21-FEB-2022','07-AUG-2022','07-AUG-2024',110,5500000,5000000);
+
+1 row created.
+
+SQL> insert into PRJ_DETAILS values('P1','SPYDER','10-JAN-2020','11-OCT-2022','11-NOV-2022',102,2000000,1990000);
+
+1 row created.
+
+SQL> select * from prj_details;
+
+PRJ PRJ_NAME   START_DAT END_DATE  ACTUAL_EN LEAD_BY_EMPCODE BUDGET_ALLOCATED   
+--- ---------- --------- --------- --------- --------------- ----------------   
+ACTUAL_BUDGET                                                                   
+-------------                                                                   
+P2  APOLLO     01-JAN-19 10-JUL-21 30-DEC-21             108          3000000   
+      3600000                                                                   
+                                                                                
+P3  UNICORN    03-SEP-21 10-OCT-23 10-OCT-24             106          7500000   
+      8000000                                                                   
+                                                                                
+P4  ZEUS       28-FEB-20 09-JUN-21 10-JAN-22             110          5500000   
+      5000000                                                                   
+                                                                                
+
+PRJ PRJ_NAME   START_DAT END_DATE  ACTUAL_EN LEAD_BY_EMPCODE BUDGET_ALLOCATED   
+--- ---------- --------- --------- --------- --------------- ----------------   
+ACTUAL_BUDGET                                                                   
+-------------                                                                   
+P5  JUPITOR    07-AUG-18 04-FEB-20 01-NOV-20             110          9000000   
+      9000000                                                                   
+                                                                                
+P6  MARS       21-FEB-22 07-AUG-22 07-AUG-24             110          5500000   
+      5000000                                                                   
+                                                                                
+P1  SPYDER     10-JAN-20 11-OCT-22 11-NOV-22             102          2000000   
+      1990000                                                                   
+                                                                                
+
+6 rows selected.
+
+SQL> insert into PRJ_DETAILS values(NULL,'XXX','01-JAN-2018','10-JULY-2020','30-DEC-2021',102,3700000,4600000);
+insert into PRJ_DETAILS values(NULL,'XXX','01-JAN-2018','10-JULY-2020','30-DEC-2021',102,3700000,4600000)
+                               *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("DSE266"."PRJ_DETAILS"."PRJID") 
+
+
+SQL> insert into PRJ_DETAILS values('P0','XXX','01-JAN-2018','10-JULY-2020','30-DEC-2021',102,3700000,4600000)
+  2  ;
+
+1 row created.
+
+SQL> insert into PRJ_DETAILS values('P7','ABC','10-FEB-2020','11-OCT-2024','11-NOV-2025',123,2500000,2990000);
+insert into PRJ_DETAILS values('P7','ABC','10-FEB-2020','11-OCT-2024','11-NOV-2025',123,2500000,2990000)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (DSE266.FK_LEAD_EMP) violated - parent key not 
+found 
+
+
+SQL> insert into PRJ_DETAILS values('P7','ABC','10-FEB-2020','11-OCT-2024','11-NOV-2025',108,2500000,2990000);
+
+1 row created.
+
+SQL> insert into work_exp values(100, 'P1', 20, 'C1', 'A');
+
+1 row created.
+
+SQL> insert into work_exp values(100, 'P1', 20, 'C1', 'A');
+insert into work_exp values(100, 'P1', 20, 'C1', 'A')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (DSE266.SYS_C0018251) violated 
+
+
+SQL> insert into work_exp values(100, 'P3', 15, 'C3', 'A');
+
+1 row created.
+
+SQL> insert into work_exp values(101, 'P1', 16, 'C1', 'A');
+
+1 row created.
+
+SQL> insert into work_exp values(102, 'P2', 18, 'C2', 'B');
+
+1 row created.
+
+SQL> insert into work_exp values(102, 'P1', 18, 'C1', 'A');
+
+1 row created.
+
+SQL> insert into work_exp values(108, 'P2', 12, 'C2', 'C');
+
+1 row created.
+
+SQL> insert into work_exp values(106, 'P3', 20, 'C3', 'C');
+
+1 row created.
+
+SQL> insert into work_exp values(106, 'P4', 10, 'C4', 'C');
+
+1 row created.
+
+SQL> insert into work_exp values(105, 'P2', 19, 'C2', 'B);
+ERROR:
+ORA-01756: quoted string not properly terminated 
+
+
+SQL> insert into work_exp values(110, 'P4', 12, 'C4', 'B');
+
+1 row created.
+
+SQL> insert into work_exp values(110, 'P5', 16, 'C8', 'A');
+
+1 row created.
+
+SQL> insert into work_exp values(105, 'P5', 5, 'C5', 'D');
+insert into work_exp values(105, 'P5', 5, 'C5', 'D')
+*
+ERROR at line 1:
+ORA-02290: check constraint (DSE266.VALID_RATING) violated 
+
+
+SQL> insert into work_exp values(111, 'P5', 5, 'C5', 'C');
+
+1 row created.
+
+SQL> 
+SQL> SELECT * FROM WORK_EXP;
+
+   EMPCODE PRJ WORK_EXPERIENCE CLI RAT                                          
+---------- --- --------------- --- ---                                          
+       100 P1               20 C1  A                                            
+       100 P3               15 C3  A                                            
+       101 P1               16 C1  A                                            
+       102 P2               18 C2  B                                            
+       102 P1               18 C1  A                                            
+       108 P2               12 C2  C                                            
+       106 P3               20 C3  C                                            
+       106 P4               10 C4  C                                            
+       110 P4               12 C4  B                                            
+       110 P5               16 C8  A                                            
+       111 P5                5 C5  C                                            
+
+11 rows selected.
+
+SQL> insert into work_exp values(105, 'P2', 19, 'C2', 'B');
+
+1 row created.
+
+SQL>  insert into work_exp values(105, 'P5', 5, 'C5', 'C');
+
+1 row created.
+
+SQL> insert into MEDICAL_POLICY values(100,'MED001',10000,TO_DATE('10-12-2020','DD-MM-YYYY'));
+insert into MEDICAL_POLICY values(100,'MED001',10000,TO_DATE('10-12-2020','DD-MM-YYYY'))
+                                      *
+ERROR at line 1:
+ORA-12899: value too large for column "DSE266"."MEDICAL_POLICY"."POLICY_NO" 
+(actual: 6, maximum: 5) 
+
+
+SQL> insert into MEDICAL_POLICY values(101,'MED003',12000,TO_DATE('15-12-2020','DD-MM-YYYY'));
+insert into MEDICAL_POLICY values(101,'MED003',12000,TO_DATE('15-12-2020','DD-MM-YYYY'))
+                                      *
+ERROR at line 1:
+ORA-12899: value too large for column "DSE266"."MEDICAL_POLICY"."POLICY_NO" 
+(actual: 6, maximum: 5) 
+
+
+SQL> insert into MEDICAL_POLICY values(100,'MED001',10000,TO_DATE('10-01-2021','DD-MM-YYYY'));
+insert into MEDICAL_POLICY values(100,'MED001',10000,TO_DATE('10-01-2021','DD-MM-YYYY'))
+                                      *
+ERROR at line 1:
+ORA-12899: value too large for column "DSE266"."MEDICAL_POLICY"."POLICY_NO" 
+(actual: 6, maximum: 5) 
+
+
+SQL> insert into MEDICAL_POLICY values(101,'MED003',12000,TO_DATE('15-01-2021','DD-MM-YYYY'));
+insert into MEDICAL_POLICY values(101,'MED003',12000,TO_DATE('15-01-2021','DD-MM-YYYY'))
+                                      *
+ERROR at line 1:
+ORA-12899: value too large for column "DSE266"."MEDICAL_POLICY"."POLICY_NO" 
+(actual: 6, maximum: 5) 
+
+
+SQL> insert into MEDICAL_POLICY values(103,'MED004',9000,TO_DATE('21-01-2021','DD-MM-YYYY'));
+insert into MEDICAL_POLICY values(103,'MED004',9000,TO_DATE('21-01-2021','DD-MM-YYYY'))
+                                      *
+ERROR at line 1:
+ORA-12899: value too large for column "DSE266"."MEDICAL_POLICY"."POLICY_NO" 
+(actual: 6, maximum: 5) 
+
+
+SQL> ALTER TABLE MEDICAL_POLICY
+  2  DROP COLUMN POLICY_NO;
+DROP COLUMN POLICY_NO
+            *
+ERROR at line 2:
+ORA-12991: column is referenced in a multi-column constraint 
+
+
+SQL> ALTER TABLE MEDICAL_POLICY
+  2  MODIFY(POLICYNO VARCHAR2(10));
+MODIFY(POLICYNO VARCHAR2(10))
+       *
+ERROR at line 2:
+ORA-00904: "POLICYNO": invalid identifier 
+
+
+SQL> ALTER TABLE MEDICAL_POLICY
+  2  MODIFY(POLICY_NO VARCHAR2(10));
+
+Table altered.
+
+SQL> ALTER TABLE MEDICAL_POLICY
+  2  MODIFY(PREMIUM NUMBER(10));
+
+Table altered.
+
+SQL> insert into MEDICAL_POLICY values(100,'MED001',10000,TO_DATE('10-12-2020','DD-MM-YYYY'));
+
+1 row created.
+
+SQL> insert into MEDICAL_POLICY values(101,'MED003',12000,TO_DATE('15-12-2020','DD-MM-YYYY'));
+
+1 row created.
+
+SQL> insert into MEDICAL_POLICY values(100,'MED001',10000,TO_DATE('10-01-2021','DD-MM-YYYY'));
+
+1 row created.
+
+SQL> insert into MEDICAL_POLICY values(101,'MED003',12000,TO_DATE('15-01-2021','DD-MM-YYYY'));
+
+1 row created.
+
+SQL> insert into MEDICAL_POLICY values(103,'MED004',9000,TO_DATE('21-01-2021','DD-MM-YYYY'));
+
+1 row created.
+
+SQL> SPOOL OFF;
