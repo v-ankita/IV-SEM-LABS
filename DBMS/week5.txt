@@ -1,0 +1,72 @@
+5.1
+SELECT UPPER(NAME) FROM EMP;
+SELECT LOWER(NAME) FROM EMP;
+SELECT INITCAP(NAME) FROM EMP;
+select UPPER(name) as Upper_name,LOWER(name) as Lower_name ,INITCAP(name) as first_cap_name from emp;
+
+5.2
+SELECT NAME|| ' Works as ' ||DESIGNATION FROM EMP ;
+
+5.3
+select LPAD (Salary ,10,'*') from EMP;
+
+5.4
+SELECT RPAD (SALARY , 10,'*') FROM EMP;
+
+5.5
+SELECT LENGTH(NAME) FROM EMP;
+
+5.6
+SELECT SUBSTR(EMAIL,3,9) FROM EMP;
+
+5.7
+SELECT REPLACE ( EMAIL,'digisol','digitech')from EMP;
+
+5.8
+select concat(name, dep_name) from emp e, family_dependents f where e.empcode = f.empno;
+
+5.9
+SELECT CLIENTID,LENGTH(CLIENTID) FROM CLIENT;
+
+5.10
+select rtrim(clientid), length(rtrim(clientid)) from client;
+
+5.11
+select ltrim(clientid), length(ltrim(clientid)) from client;
+select trim(clientid), length(trim(clientid)) from client;
+
+5.12
+select ascii('A'), chr(65) from dual;
+
+5.13
+SELECT TRUNC(123.456,2) FROM dual;
+
+5.14
+select sqrt(9), power(9, 2), power(9, 5) from dual;
+
+5.15
+SELECT ROUND(123.456,2) FROM dual;
+
+5.16
+select abs(-123), mod(123, 10) from dual;
+
+5.17
+select floor(234.36), floor(-234.36), ceil(234.36), ceil(-234.36) from dual;
+
+5.18
+select to_char(start_date, 'DD-MONTH-YYYY'), to_char(end_date, 'DD-MONTH-YYYY') from prj_details;
+
+5.19
+select to_char(actual_end_date, 'MONTH'), to_char(actual_end_date, 'YEAR') from prj_details;
+
+5.20
+select to_char(start_date, 'MONTH'), to_char(start_date, 'DAY'), to_char(start_date, 'YEAR') from prj_details;
+
+5.21
+select prj_name, months_between(end_date, start_date) from prj_details;
+
+5.22
+select prj_name, end_date, add_months(end_date, 2) "2_MON_LATER" from prj_details;
+
+5.23
+select next_day('04-MAY-2022', 'THURSDAY') "NEXT THURSDAY" from dual;
